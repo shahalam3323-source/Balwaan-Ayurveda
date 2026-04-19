@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Balwaan Gold | 2-Minute Vitality Check</title>
+  <title>Balwaan Ayurveda | 2-Minute free Vitality Survey - Discover your energy, stamina, focus & vitality level. Private & instant result.</title>
+  <meta name="description" content="Take our free 2-minute private vitality survey. Know your energy, stamina, focus & vitality level instantly. No spam, just results." />
+  <meta property="og:title" content="Balwaan Ayurveda | Free 2-Minute Vitality Survey" />
+  <meta property="og:description" content="Discover your energy, stamina, focus & vitality level. Private & instant result." />
+  <meta property="og:image" content="https://balwaangold.com/images/vitality-og.jpg" />
+  <meta name="twitter:card" content="summary" />
   <style>
     :root{
       --bg:#07120d;
@@ -174,8 +179,7 @@
 
 <script>
   // ========== CONFIGURATION ==========
-  // Replace with your Sheet.best URL if needed
-  const SHEET_BEST_URL = "https://sheet.best/api/sheets/YOUR-SHEET-ID";
+  const SHEET_BEST_URL = "https://sheet.best/api/sheets/YOUR-SHEET-ID"; // replace when ready
   const BUSINESS_WHATSAPP_NUMBER = "9557133307"; // official number
 
   // Get URL parameters (name & phone)
@@ -183,7 +187,6 @@
   let leadName = (params.get("name") || "").trim();
   let leadPhone = (params.get("phone") || "").trim();
 
-  // If no name, set default greeting
   const welcomePill = document.getElementById("welcomePill");
   welcomePill.textContent = leadName ? `Hi ${leadName} 👋` : "Hi there 👋";
 
@@ -206,7 +209,6 @@
   let selectedOption = "";
   let finished = false;
 
-  // DOM elements
   const stepLabel = document.getElementById("stepLabel");
   const qText = document.getElementById("qText");
   const qSub = document.getElementById("qSub");
@@ -225,7 +227,6 @@
   const restartBtn = document.getElementById("restartBtn");
   const phoneCaptureDiv = document.getElementById("phoneCapture");
   const userPhoneInput = document.getElementById("userPhone");
-  const zoneListDiv = document.getElementById("zoneList");
 
   function getCurrentQuestion() { return steps[currentIndex]; }
 
@@ -321,12 +322,11 @@
 
   function buildWhatsAppLink(result) {
     let phoneToUse = leadPhone;
-    // If phone missing, get from input
     if (!phoneToUse && userPhoneInput && userPhoneInput.value.trim()) {
       phoneToUse = userPhoneInput.value.trim();
-      leadPhone = phoneToUse; // store for later
+      leadPhone = phoneToUse;
     }
-    if (!phoneToUse) return "#"; // no phone, link disabled
+    if (!phoneToUse) return "#";
     const msg = `Hi Balwaan Gold team, I completed my 2-minute vitality check.\nName: ${leadName || "there"}\nPhone: ${phoneToUse}\nResult: ${result.category}\nScore: ${result.score}\nPlease share my personalized guidance.`;
     return `https://wa.me/${BUSINESS_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
   }
@@ -336,16 +336,13 @@
     categoryValue.textContent = result.category;
     summaryValue.textContent = result.summary;
     insightsBox.innerHTML = result.insights.map(item => `<div class="insight"><strong>Insight:</strong> ${item}</div>`).join("");
-    // highlight current zone in zone list
     const zoneItems = document.querySelectorAll(".zone-item");
     zoneItems.forEach(item => {
       item.classList.remove("highlight");
       if (item.innerText.includes(result.category)) item.classList.add("highlight");
     });
-    // phone capture
     if (!leadPhone) {
       phoneCaptureDiv.classList.remove("hidden");
-      // enable WhatsApp link only when phone entered
       userPhoneInput.addEventListener("input", () => {
         if (userPhoneInput.value.trim().length === 10) {
           waLink.href = buildWhatsAppLink(result);
