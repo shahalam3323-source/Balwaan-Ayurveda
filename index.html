@@ -237,11 +237,65 @@
 .premium .variant-features li i { color: #D4AF37; }
 
 /* Pricing & Button */
-.variant-price { font-size: 32px; font-weight: 800; color: #14452F; margin-bottom: 15px; }
-.premium .variant-price { color: #D4AF37; }
-.variant-btn { width: 100%; padding: 12px; font-weight: bold; border-radius: 8px; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-.btn-starter { background: #14452F; color: white; border: 2px solid #14452F; }
-.btn-starter:hover { background: white; color: #14452F; }
+/* Optimized Pricing Cards */
+.variant-section { padding: 40px 0; background-color: #fff; } /* Reduced top/bottom padding */
+
+.variant-card {
+    background: #fff; border-radius: 20px; padding: 20px 15px; /* Tightened padding */
+    border: 2px solid #eee; text-align: center; position: relative;
+    transition: 0.3s; height: 100%; display: flex; flex-direction: column;
+}
+
+.variant-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+.variant-card.premium { border-color: #D4AF37; }
+
+/* Product Images - Increased by 20% */
+.variant-img-wrapper { 
+    position: relative; 
+    margin-bottom: 15px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 220px; /* Space for larger images */
+}
+
+.variant-img { 
+    width: 100%; 
+    max-width: 215px; /* 20% increase from previous 180px */
+    height: auto; 
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+.premium .variant-img { 
+    max-width: 260px; /* 20% increase from previous 220px */
+    z-index: 2;
+}
+
+/* Tightened Feature List */
+.variant-features { 
+    list-style: none; padding: 12px; text-align: left; 
+    margin: 15px 0; border: 1px solid #f0f0f0; border-radius: 10px; 
+}
+
+.variant-features li { 
+    margin-bottom: 8px; /* Reduced gap between lines */
+    font-size: 13.5px; 
+    line-height: 1.3;
+    color: #444; 
+    display: flex; 
+    align-items: center; 
+}
+
+/* CTA & Pricing */
+.variant-price { font-size: 30px; font-weight: 800; margin-bottom: 10px; }
+.variant-btn { padding: 10px; font-size: 15px; }
+
+/* Halo Effect Adjustment for larger image */
+.halo-effect {
+    position: absolute; width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(255,255,255,0) 75%);
+    z-index: 1;
+}
         
     </style>
 </head>
