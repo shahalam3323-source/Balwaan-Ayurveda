@@ -199,6 +199,50 @@
             .ingredient-box .badge { font-size: 9px !important; padding: 3px 5px !important; margin-bottom: 3px; display: inline-block;}
             .issue-badge { font-size: 14px; padding: 8px 20px !important; }
         }
+/* Pricing/Variant Cards Section */
+.variant-section { padding: 60px 0; background-color: #fff; }
+.variant-card {
+    background: #fff; border-radius: 20px; padding: 30px 20px;
+    border: 2px solid #eee; text-align: center; position: relative;
+    transition: 0.3s; height: 100%; display: flex; flex-direction: column;
+}
+.variant-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+.variant-card.premium { border-color: #D4AF37; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15); }
+.variant-card.premium:hover { box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3); }
+
+/* Recommended Badge */
+.recommended-badge {
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: var(--gold-gradient); color: #000; font-weight: 800;
+    padding: 8px 25px; border-radius: 30px; font-size: 14px; text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4); white-space: nowrap;
+}
+
+/* Jar Images */
+.variant-img-wrapper { position: relative; margin-bottom: 20px; }
+.variant-img { width: 100%; max-width: 180px; height: auto; transition: 0.3s; }
+.premium .variant-img { max-width: 220px; /* Makes the 60 capsule jar visibly larger */ }
+.halo-effect {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 250px; height: 250px; background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%; z-index: -1; animation: pulse 3s infinite;
+}
+@keyframes pulse { 0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; } 50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.4; } 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; } }
+
+/* Features List */
+.variant-features { list-style: none; padding: 0; text-align: left; margin: 25px 0; border: 1px solid #eee; border-radius: 10px; padding: 15px; }
+.premium .variant-features { border-color: rgba(212, 175, 55, 0.4); background: #fffcf0; }
+.variant-features li { margin-bottom: 12px; font-size: 14px; color: #444; display: flex; align-items: start; }
+.variant-features li i { margin-top: 3px; margin-right: 10px; color: #14452F; }
+.premium .variant-features li i { color: #D4AF37; }
+
+/* Pricing & Button */
+.variant-price { font-size: 32px; font-weight: 800; color: #14452F; margin-bottom: 15px; }
+.premium .variant-price { color: #D4AF37; }
+.variant-btn { width: 100%; padding: 12px; font-weight: bold; border-radius: 8px; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+.btn-starter { background: #14452F; color: white; border: 2px solid #14452F; }
+.btn-starter:hover { background: white; color: #14452F; }
+        
     </style>
 </head>
 <body>
@@ -285,7 +329,70 @@
             <div class="trust-item"><i class="fas fa-box-open"></i> Secret Packaging</div>
         </div>
     </div>
+<section class="variant-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 style="font-weight: 800;">Choose Your <span class="text-gold">Balwaan Pack</span></h2>
+            <p class="text-muted">Select the best option for your wellness journey.</p>
+        </div>
 
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="variant-card mt-3">
+                    <span class="badge bg-dark text-white mb-3 mx-auto" style="width: max-content; padding: 8px 20px; font-size: 14px;">STARTER PACK</span>
+                    <h3 class="fw-bold mb-0 text-success">30 CAPSULES</h3>
+                    
+                    <div class="variant-img-wrapper mt-4">
+                        <img src="images/gallery-1.webp" alt="30 Capsules Jar" class="variant-img">
+                    </div>
+
+                    <ul class="variant-features">
+                        <li><i class="fas fa-calendar-alt"></i> 15 Days Support</li>
+                        <li><i class="fas fa-user"></i> Good for First-time Users</li>
+                        <li><i class="fas fa-leaf"></i> Perfect to try & feel the difference</li>
+                        <li><i class="fas fa-shield-alt"></i> Start your wellness journey</li>
+                    </ul>
+
+                    <div class="mt-auto">
+                        <div class="variant-price">₹550</div>
+                        <a href="checkout.html" class="btn variant-btn btn-starter">Try & Save</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="variant-card premium mt-3">
+                    <div class="recommended-badge"><i class="fas fa-star me-1"></i> MOST RECOMMENDED</div>
+                    <span class="badge bg-warning text-dark mb-3 mx-auto" style="width: max-content; padding: 8px 20px; font-size: 14px;">REGULAR PACK</span>
+                    <h3 class="fw-bold mb-0 text-gold">60 CAPSULES</h3>
+                    
+                    <div class="variant-img-wrapper mt-4">
+                        <div class="halo-effect"></div>
+                        <img src="images/gallery-1.webp" alt="60 Capsules Jar" class="variant-img">
+                    </div>
+
+                    <ul class="variant-features">
+                        <li><i class="fas fa-calendar-check"></i> 30 Days Support</li>
+                        <li><i class="fas fa-bullseye"></i> Noticeable & Consistent Results</li>
+                        <li><i class="fas fa-user-md"></i> Recommended Duration by Experts</li>
+                        <li><i class="fas fa-piggy-bank"></i> Better Value & More Savings</li>
+                    </ul>
+
+                    <div class="mt-auto">
+                        <div class="variant-price">₹990</div>
+                        <a href="checkout.html" class="btn variant-btn btn-gold-glow">Buy Now - Best Value</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <div class="badge bg-light text-dark border p-3 shadow-sm" style="font-size: 14px;">
+                <i class="fas fa-rupee-sign text-gold me-2"></i> <strong>SMART CHOICE:</strong> Save more with the <strong>60 Capsules</strong> pack & stay consistent for better results!
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Core Issues Section -->
     <section class="section-padding bg-light">
         <div class="container">
