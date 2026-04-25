@@ -176,17 +176,217 @@
         .banner-cta:hover {
             background: #f5e27a;
         }
-        @media (max-width: 768px) {
-            .survey-banner {
-                min-height: 250px;
-            }
-            .banner-benefits span {
-                font-size: 12px;
-            }
-            .banner-cta {
-                padding: 8px 20px;
-                font-size: 14px;
-            }
+
+        /* ========== PACK SELECTION SECTION (MERGED ULTRA-SHARP) ========== */
+        .pack-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        .pack-section .hook-line {
+            color: #D4AF37;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            animation: fadeInDown 0.8s ease;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pack-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 20px;
+            border: 2px solid #eee;
+            text-align: center;
+            position: relative;
+            transition: 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Dim effect for starter (decoy push) */
+        .pack-card.starter {
+            border-color: #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .pack-card.starter:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        /* Premium glow */
+        .pack-card.premium {
+            border-color: #D4AF37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            background: #fffdf5;
+        }
+        .pack-card.premium:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Recommended badge */
+        .recommended-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold-gradient, linear-gradient(135deg, #D4AF37, #f5e27a));
+            color: #000;
+            font-weight: 800;
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-size: 14px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
+            z-index: 2;
+        }
+
+        /* Micro trust line */
+        .micro-trust {
+            font-size: 13px;
+            color: #856404;
+            background: rgba(212, 175, 55, 0.15);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* Image wrapper */
+        .pack-img-wrapper {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .pack-img {
+            width: 100%;
+            max-width: 200px;       /* thoda bada */
+            height: auto;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            transition: 0.3s;
+        }
+        .premium .pack-img {
+            max-width: 230px;       /* 60 capsule jar visibly larger */
+        }
+
+        /* Halo effect (premium only) */
+        .halo-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse 3s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.4; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+        }
+
+        /* Features list */
+        .pack-features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin: 25px 0;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        .premium .pack-features {
+            border-color: rgba(212, 175, 55, 0.4);
+            background: #fffcf0;
+        }
+        .pack-features li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #444;
+            display: flex;
+            align-items: start;
+        }
+        .pack-features li i {
+            margin-top: 3px;
+            margin-right: 10px;
+            color: #14452F;
+        }
+        .premium .pack-features li i {
+            color: #D4AF37;
+        }
+
+        /* Pricing */
+        .pack-price {
+            font-size: 32px;
+            font-weight: 800;
+            color: #14452F;
+            margin-bottom: 10px;
+        }
+        .premium .pack-price {
+            color: #D4AF37;
+        }
+
+        /* Buttons */
+        .pack-btn {
+            width: 100%;
+            padding: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .btn-starter-pack {
+            background: #fff;
+            color: #14452F;
+            border: 2px solid #14452F;
+        }
+        .btn-starter-pack:hover {
+            background: #14452F;
+            color: #fff;
+        }
+        .btn-premium-pack {
+            background: var(--gold-gradient, linear-gradient(135deg, #D4AF37, #f5e27a));
+            color: #000;
+            border: none;
+            animation: glowing 2s infinite;
+        }
+        .btn-premium-pack:hover {
+            background: linear-gradient(135deg, #f5e27a, #D4AF37);
+            transform: scale(1.02);
+            color: #000;
+        }
+
+        /* First-time user note */
+        .first-time-note {
+            font-size: 12px;
+            color: #888;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* Urgency strip (full width) */
+        .urgency-strip {
+            background: #e8f5e9;
+            color: #14452F;
+            font-weight: 700;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 3px 10px rgba(0,128,0,0.1);
         }
 
         @media (max-width: 768px) { 
@@ -198,6 +398,16 @@
             .ingredient-box p { font-size: 11px; margin-bottom: 8px; }
             .ingredient-box .badge { font-size: 9px !important; padding: 3px 5px !important; margin-bottom: 3px; display: inline-block;}
             .issue-badge { font-size: 14px; padding: 8px 20px !important; }
+            .pack-img {
+                max-width: 150px;
+            }
+            .premium .pack-img {
+                max-width: 180px;
+            }
+            .pack-btn {
+                padding: 12px;
+                font-size: 14px;
+            }
         }
 
     </style>
@@ -357,7 +567,7 @@
         </div>
     </section>
 
-    <!-- Modals for Solutions (same as before – kept unchanged) -->
+    <!-- Modals for Solutions (unchanged) -->
     <div class="modal fade" id="solutionModal1" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -423,21 +633,151 @@
         </div>
     </div>
 
-    <!-- Rest of the page remains unchanged (transformation, comparison, ingredients, why choose, FAQ, medical board, footer, modals, scripts) -->
-    <!-- To keep the answer within length, I'm not repeating the entire unchanged part, but you can copy the rest from your previous index.html. The banner is the key addition. -->
+    <!-- ========== PACK SELECTION SECTION (MERGED ULTRA-SHARP) ========== -->
+    <section class="pack-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="hook-line">⚡ Aaj nahi… toh kab?</div>
+                <h2 style="font-weight: 800; color:#14452F;">Choose Your <span class="text-gold">Balwaan Pack</span></h2>
+                <p class="text-muted">Thakan khatam. Asar mehsoos karo — aaj se.</p>
+            </div>
 
-    <!-- Make sure to include the rest of your HTML (transformation section, comparison table, ingredients, etc.) from your original file. -->
-    <!-- For brevity, I'll add a placeholder comment. In practice, paste the remaining sections unchanged. -->
-    
-    <!-- ... (copy the rest of your index.html from the original file after the core issues section) ... -->
+            <div class="row justify-content-center g-4">
+                <!-- STARTER PACK (dimmed / decoy) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="pack-card starter">
+                        <span class="badge bg-dark text-white mb-3 mx-auto" style="width: max-content; padding: 8px 20px; font-size: 14px;">STARTER PACK</span>
+                        <h3 class="fw-bold mb-0 text-success">30 CAPSULES</h3>
+
+                        <div class="pack-img-wrapper mt-4">
+                            <img src="images/gallery-1.webp" alt="30 Capsules Jar" class="pack-img">
+                        </div>
+
+                        <ul class="pack-features">
+                            <li><i class="fas fa-calendar-alt"></i> 15 Days Support</li>
+                            <li><i class="fas fa-user"></i> Good for First-time Users</li>
+                            <li><i class="fas fa-leaf"></i> Perfect to try & feel the difference</li>
+                            <li><i class="fas fa-shield-alt"></i> Start your wellness journey</li>
+                        </ul>
+
+                        <div class="mt-auto">
+                            <div class="pack-price">₹550</div>
+                            <a href="checkout.html" class="pack-btn btn-starter-pack">Pehla Step Lo</a>
+                            <div class="first-time-note">First-time users ke liye</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REGULAR PACK (highlighted / most recommended) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="pack-card premium">
+                        <div class="recommended-badge"><i class="fas fa-star me-1"></i> MOST RECOMMENDED</div>
+                        <span class="badge bg-warning text-dark mb-3 mx-auto" style="width: max-content; padding: 8px 20px; font-size: 14px;">REGULAR PACK</span>
+                        <h3 class="fw-bold mb-0 text-gold">60 CAPSULES</h3>
+
+                        <div class="pack-img-wrapper mt-4">
+                            <div class="halo-effect"></div>
+                            <img src="images/gallery-1.webp" alt="60 Capsules Jar" class="pack-img">
+                        </div>
+
+                        <!-- Micro trust: zyada log yahi choose karte hain -->
+                        <div class="micro-trust mt-2">🔥 90% logo ki first choice</div>
+
+                        <ul class="pack-features">
+                            <li><i class="fas fa-calendar-check"></i> 30 Days Support</li>
+                            <li><i class="fas fa-bullseye"></i> Noticeable & Consistent Results</li>
+                            <li><i class="fas fa-user-md"></i> Recommended Duration by Experts</li>
+                            <li><i class="fas fa-piggy-bank"></i> Better Value & More Savings</li>
+                        </ul>
+
+                        <div class="mt-auto">
+                            <div class="pack-price">₹990</div>
+                            <a href="checkout.html" class="pack-btn btn-premium-pack">Full Power Activate Karo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Urgency strip -->
+            <div class="text-center">
+                <div class="urgency-strip">
+                    <i class="fas fa-truck-fast me-2"></i> Aaj order = jaldi delivery | COD available
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Baki page ka content (transformation, comparison, ingredients, etc.) yahan add karein -->
+    <!-- ... (aap apna baaki ka original index.html yahan paste kar sakte hain) ... -->
 
     <!-- Footer and scripts (unchanged) -->
     <footer class="footer-main bg-dark text-white pt-5 pb-3">
-        <!-- ... (same as before) ... -->
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-gold mb-3">BALWAAN GOLD</h4>
+                    <p class="small text-light">India's premium Ayurvedic supplement for men's health, strength, and confidence.</p>
+                    <div class="mt-3">
+                        <a href="https://wa.me/919557133307" class="text-white me-3" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
+                        <a href="tel:+919557133307" class="text-white"><i class="fas fa-phone fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-gold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="checkout.html" class="text-light text-decoration-none">Products</a></li>
+                        <li class="mb-2"><a href="privacy-policy.html" class="text-light text-decoration-none" target="_blank">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms-conditions.html" class="text-light text-decoration-none" target="_blank">Terms & Conditions</a></li>
+                        <li><a href="refund-policy.html" class="text-light text-decoration-none" target="_blank">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-gold mb-3">Consult Support Team</h5>
+                    <p class="small text-light mb-3">Consultation ke liye hamare Ayurvedic Experts se connect karein. Humari team aapki puri sahayata karegi.</p>
+                    <button class="btn btn-gold-glow mt-2 w-100 py-2" style="font-size: 14px; text-transform: none; border-radius: 8px;" data-bs-toggle="modal" data-bs-target="#leadGateModal">
+                        <i class="fab fa-whatsapp me-2"></i> Click Here to Chat on WhatsApp
+                    </button>
+                </div>
+            </div>
+            <div class="row mt-4 pt-4 border-top border-secondary">
+                <div class="col-12 text-center text-md-start">
+                    <p style="font-size: 11px; color: #888; line-height: 1.6; margin-bottom: 10px; text-align: justify;">
+                        <strong>Disclaimer:</strong> Balwaan Gold is a 100% Ayurvedic herbal supplement. It is not intended to diagnose, treat, cure, or prevent any disease. The information provided on this website is for educational purposes only and is not a substitute for professional medical advice. Individual results may vary based on age, lifestyle, and medical history. Please consult your physician before starting any new dietary supplement, especially if you have pre-existing health conditions.
+                    </p>
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3">
+                        <p class="small text-secondary mb-2 mb-md-0">© 2026 Balwaan Ayurveda | Made in India | GMP Certified</p>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa fa-lg text-secondary me-2"></i>
+                            <i class="fab fa-cc-mastercard fa-lg text-secondary me-2"></i>
+                            <i class="fas fa-rupee-sign fa-lg text-secondary border border-secondary rounded-circle p-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <div class="modal fade" id="leadGateModal" tabindex="-1" aria-hidden="true">
-        <!-- ... -->
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header lead-modal-header">
+                    <h5 class="modal-title"><i class="fab fa-whatsapp text-success me-2 bg-white rounded-circle p-1"></i> Unlock Support</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <h4 class="mb-3 text-dark">Get Free Consultation</h4>
+                    <p class="text-muted small mb-4">Please enter your details to connect with our Ayurvedic expert on WhatsApp.</p>
+                    <form id="leadGateForm">
+                        <input type="text" id="lgName" class="lead-input" placeholder="Your Full Name *" required>
+                        <input type="tel" id="lgMobile" class="lead-input" placeholder="Your Mobile Number *" pattern="[0-9]{10}" required>
+                        <button type="submit" class="btn btn-success w-100 py-3 fw-bold rounded-pill">
+                            <i class="fab fa-whatsapp me-2"></i> START CHAT NOW
+                        </button>
+                    </form>
+                    <p class="mt-3 small text-muted"><i class="fas fa-lock me-1"></i> Your details are 100% secure.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="whatsapp-float" data-bs-toggle="modal" data-bs-target="#leadGateModal"><i class="fab fa-whatsapp"></i></div>
@@ -445,7 +785,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Image gallery and swipe logic (same as before)
+        // Image gallery and swipe logic
         let currentImgIndex = 0;
         let isSwiping = false;
         const thumbs = document.querySelectorAll('.thumb');
